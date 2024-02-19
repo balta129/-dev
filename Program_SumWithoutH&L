@@ -1,0 +1,90 @@
+﻿using System;
+using System.Diagnostics;
+using System.Globalization;
+using System.Net.NetworkInformation;
+using System.Runtime.InteropServices;
+using System.Text.RegularExpressions;
+using Microsoft.VisualBasic;
+
+namespace RepeatLesson
+{
+    public class Program_SumWithout
+    {
+        public static void Main_SumWithout(string[] args)
+        {
+            
+      //Task Sum all the numbers of a given array ( cq. list ), except the highest and the lowest element ( by value, not by index! ).
+      //The highest or lowest element respectively is a single element at each edge, even if there are more than one with the same value.
+      //Mind the input validation.
+      //Example
+      //{ 6, 2, 1, 8, 10 } => 16
+      //{ 1, 1, 11, 2, 3 } => 6
+       Console.Write("Input the number of elements to store in the array: ");
+            int number = Convert.ToInt32(Console.ReadLine());
+            
+            int[] array = new int[number];
+            
+
+            Console.WriteLine("Input " + number + " number of elements in the array:");
+
+            for(int i = 0; i < number; i++)
+            {
+                Console.Write("Element - "+ i +" : " );
+                array [i] = Convert.ToInt32(Console.ReadLine());
+            }
+            int a = 0;
+            for(int i = 0; i < number; i++)
+            {
+                for(int j = 0; j < number-1; j++)
+                {
+                    if(array[j] > array[j+1])
+                    {
+                        a = array[j+1];
+                        array[j+1] = array[j];
+                        array[j] = a;
+                    }
+                }
+            }
+            int sum = 0;
+            for (int i = 1; i < number-1; i++)
+            {
+                sum = sum+ array[i];
+            }
+            Console.Write("Sum without highest and lowest elements is : "+sum);
+
+
+            
+           
+            
+            
+    
+            
+            
+            
+            
+            
+            
+            
+            
+            
+           
+
+
+
+            
+
+            
+                
+                
+            
+            
+
+
+            
+                
+            
+        
+        }
+          
+    }
+}
